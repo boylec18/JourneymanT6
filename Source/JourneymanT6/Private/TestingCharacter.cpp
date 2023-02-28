@@ -15,6 +15,8 @@ ATestingCharacter::ATestingCharacter()
 void ATestingCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	CurrentHealth = 2.0f;
 	
 }
 

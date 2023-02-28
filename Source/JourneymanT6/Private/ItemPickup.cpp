@@ -3,6 +3,9 @@
 
 #include "ItemPickup.h"
 #include "Components/SphereComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Engine/Engine.h"
+#include "TestingCharacter.h"
 
 // Sets default values
 AItemPickup::AItemPickup()
@@ -10,11 +13,11 @@ AItemPickup::AItemPickup()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-	RootComponent = StaticMesh;
+	ItemMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+	RootComponent = ItemMesh;
 
-	SphereCollision = CreateDefaultSubobject<USphereComponent>(TEXT("SphereHitBox"));
-	SphereCollision->SetupAttachment(RootComponent);
+	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("SphereHitBox"));
+	Sphere->SetupAttachment(GetRootComponent());
 
 }
 
@@ -22,6 +25,8 @@ AItemPickup::AItemPickup()
 void AItemPickup::BeginPlay()
 {
 	Super::BeginPlay();
+
+	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AItemPickup::OnSphereOverlap);
 	
 }
 
@@ -32,14 +37,16 @@ void AItemPickup::Tick(float DeltaTime)
 
 }
 
-void AItemPickup::OnEventBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void AItemPickup::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	APawn * PlayerCharacter = Cast<APawn>(OtherActor);
+	ATestingCharacter* TestingCharacter = Cast<ATestingCharacter>(OtherActor);
 
-	if (PlayerCharacter && PlayerCharacter->ActorHasTag("Player"))
+
+	if (TestingCharacter)
 	{
-		Destroy(this);
+		return;
 	}
+	
 }
 
 
