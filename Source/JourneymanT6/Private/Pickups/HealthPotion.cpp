@@ -3,8 +3,11 @@
 
 #include "Pickups/HealthPotion.h"
 #include "TestingCharacter.h"
-#include "NiagaraFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
+
+
 
 
 
@@ -29,6 +32,6 @@ void AHealthPotion::Heal()
 {
 	
 	UGameplayStatics::PlaySound2D(GetWorld(), PickupSound);
-	
+	UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), PickupVFX, GetActorLocation());
 	Destroy();
 }

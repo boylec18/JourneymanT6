@@ -6,6 +6,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Engine/Engine.h"
 #include "TestingCharacter.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
 
 
 // Sets default values
@@ -36,6 +38,11 @@ void AItemPickup::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	RunningTime += DeltaTime;
+
+	AddActorWorldOffset(FVector(0.f, 0.f, TransformedSin()));
+
+
 }
 
 void AItemPickup::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -47,6 +54,11 @@ void AItemPickup::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 		return;
 	}
 
-};
+}
+float AItemPickup::TransformedSin()
+{
+	return Aimplitude * FMath::Sin(RunningTime * TimeConstant);
+}
+;
 
 

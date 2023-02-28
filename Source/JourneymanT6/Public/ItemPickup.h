@@ -7,6 +7,8 @@
 #include "ItemPickup.generated.h"
 
 
+
+
 class UStaticMeshComponent;
 class USphereComponent;
 class USoundBase;
@@ -30,6 +32,13 @@ protected:
 
 	UPROPERTY(VisibleAnywhere = "HitBox")
 		USphereComponent* Sphere;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sine Parameters")
+		float Aimplitude = 0.25f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sine Parameters")
+		float TimeConstant = 5.0f;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -44,6 +53,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "VFX")
 		UNiagaraSystem* PickupVFX;
 
+	UFUNCTION(BlueprintPure)
+		float TransformedSin();
+
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+		float RunningTime;
 
 
 
