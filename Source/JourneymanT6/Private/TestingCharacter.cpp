@@ -20,6 +20,15 @@ void ATestingCharacter::BeginPlay()
 	
 }
 
+void ATestingCharacter::HealPlayer()
+{
+
+	CurrentHealth += 1.0f;
+	FString HealthString = FString::SanitizeFloat(CurrentHealth);
+	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Green, HealthString);
+	
+}
+
 // Called every frame
 void ATestingCharacter::Tick(float DeltaTime)
 {

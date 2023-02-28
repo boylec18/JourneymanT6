@@ -7,6 +7,7 @@
 #include "Engine/Engine.h"
 #include "TestingCharacter.h"
 
+
 // Sets default values
 AItemPickup::AItemPickup()
 {
@@ -41,12 +42,11 @@ void AItemPickup::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 {
 	ATestingCharacter* TestingCharacter = Cast<ATestingCharacter>(OtherActor);
 
-
 	if (TestingCharacter)
 	{
 		return;
 	}
-	
-}
+
+};
 
 
