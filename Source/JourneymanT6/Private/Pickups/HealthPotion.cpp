@@ -17,7 +17,7 @@ void AHealthPotion::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AA
 	Super::OnSphereOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
 	ATestingCharacter* Player = Cast<ATestingCharacter>(OtherActor);
 
-
+	
 	if (Player->CurrentHealth <= 2.0f)
 	{
 		Heal();
