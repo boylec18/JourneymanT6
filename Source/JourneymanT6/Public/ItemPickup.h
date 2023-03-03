@@ -30,6 +30,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "StaticMesh")
 		UStaticMeshComponent* ItemMesh;
 
+	UPROPERTY(EditDefaultsOnly, Category = "StaticMesh")
+		UStaticMeshComponent* RootScene;
+
 	UPROPERTY(VisibleAnywhere = "HitBox")
 		USphereComponent* Sphere;
 
