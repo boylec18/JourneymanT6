@@ -24,10 +24,18 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Heals")
 		void Heal();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "C++ Health")
+		int32 CurrentHealth;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "C++ Health")
+		int32 MaxHealth;
+
 protected:
 
 	AActor* OverlappedActor;
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
 		bool IsHealing;
+
+
 };

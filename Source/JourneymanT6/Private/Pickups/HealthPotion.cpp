@@ -17,19 +17,26 @@ void AHealthPotion::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AA
 	Super::OnSphereOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
 	
 	OverlappedActor = OtherActor;
-	Heal();
-	IsHealing = true;
+	
+
+	if (OverlappedActor->ActorHasTag("Player"))
+	{
+		if (CurrentHealth < MaxHealth)
+		{
+			Heal();
+			IsHealing = true;
+		}
+		
+	}
 	
 
 }
 
 void AHealthPotion::Heal()
 {
-	if (OverlappedActor->ActorHasTag("Player"))
-	{
+	
 		UGameplayStatics::PlaySound2D(GetWorld(), PickupSound);
 		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), PickupVFX, GetActorLocation());
 		IsHealing = false;
-	}
 		
 }
