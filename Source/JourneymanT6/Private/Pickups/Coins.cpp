@@ -46,10 +46,8 @@ void ACoins::Tick(float DeltaTime)
 		return;
 	}
 
-	if (TargetActor == nullptr)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Blue, TEXT("Target is Null"));
-	}
+	if (!TargetActor)
+	{return;}
 
 		SetActorLocation(FMath::VInterpTo(GetActorLocation(), TargetActor->GetActorLocation(), DeltaTime, InterpSpeed));
 
