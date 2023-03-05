@@ -32,6 +32,8 @@ void ACoins::BeginPlay()
 
 	SphereCollision->OnComponentBeginOverlap.AddDynamic(this, &ACoins::OnSphereOverlap);
 
+	PickupDelay = 2;
+
 	
 }
 
@@ -51,16 +53,23 @@ void ACoins::Tick(float DeltaTime)
 
 		SetActorLocation(FMath::VInterpTo(GetActorLocation(), TargetActor->GetActorLocation(), DeltaTime, InterpSpeed));
 
+		PickupDelay -= DeltaTime;
+
 }
 
 void ACoins::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	OverlappedActor = OtherActor;
 
-	if (OverlappedActor->ActorHasTag("TestingCharacter"))
+	if (PickupDelay <= 0)
 	{
-		Destroy();
+		if (OverlappedActor->ActorHasTag("TestingCharacter"))
+		{
+			Destroy();
+		}
 	}
+
+	
 
 		
 }

@@ -52,4 +52,6 @@ public:
 
 	float WaitTime = 1;
 
+	float PickupDelay;
+
 };
