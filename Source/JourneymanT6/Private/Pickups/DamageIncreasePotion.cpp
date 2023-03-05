@@ -12,5 +12,7 @@ void ADamageIncreasePotion::OnSphereOverlap(UPrimitiveComponent* OverlappedCompo
 	if (OverlappedPlayer->ActorHasTag("Player"))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Green, TEXT("DamageIncrease"));
+
+		Destroy();
 	}
 }
