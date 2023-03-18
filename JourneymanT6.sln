@@ -29,10 +29,6 @@ Global
 		Shipping|Win32 = Shipping|Win32
 		Shipping|Win64 = Shipping|Win64
 	EndGlobalSection
-	# Visual Assist Section
-	GlobalSection(44630d46-96b5-488c-8df926e21db8c1a3) = preSolution
-		ueSolution=true
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{33EC6CED-6FEF-4632-BF92-5786EC0A6621}.DebugGame Editor|Win32.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{33EC6CED-6FEF-4632-BF92-5786EC0A6621}.DebugGame Editor|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
@@ -44,7 +40,7 @@ Global
 		{33EC6CED-6FEF-4632-BF92-5786EC0A6621}.Development|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{33EC6CED-6FEF-4632-BF92-5786EC0A6621}.Shipping|Win32.ActiveCfg = BuiltWithUnrealBuildTool|Win32
 		{33EC6CED-6FEF-4632-BF92-5786EC0A6621}.Shipping|Win64.ActiveCfg = BuiltWithUnrealBuildTool|Win32
-		{2FADC887-2D38-4373-AA98-EAC700379C13}.DebugGame Editor|Win32.ActiveCfg = Invalid|Win32
+		{2FADC887-2D38-4373-AA98-EAC700379C13}.DebugGame Editor|Win32.ActiveCfg = Development_Editor|Win32
 		{2FADC887-2D38-4373-AA98-EAC700379C13}.DebugGame Editor|Win64.ActiveCfg = DebugGame_Editor|x64
 		{2FADC887-2D38-4373-AA98-EAC700379C13}.DebugGame Editor|Win64.Build.0 = DebugGame_Editor|x64
 		{2FADC887-2D38-4373-AA98-EAC700379C13}.DebugGame|Win32.ActiveCfg = DebugGame|Win32
@@ -69,5 +65,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{33EC6CED-6FEF-4632-BF92-5786EC0A6621} = {94A6C6F3-99B3-346E-9557-ABF9D4064DBD}
 		{2FADC887-2D38-4373-AA98-EAC700379C13} = {8E2F6A87-1826-34F4-940C-CC23A48F9FE4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88996CAE-BDEC-49ED-B946-DA252F1F00F7}
+	EndGlobalSection
+	GlobalSection(44630d46-96b5-488c-8df926e21db8c1a3) = preSolution
+		ueSolution = true
 	EndGlobalSection
 EndGlobal
