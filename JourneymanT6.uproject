@@ -64,6 +64,10 @@
 				"Win64",
 				"Android"
 			]
+		},
+		{
+			"Name": "HDRIBackdrop",
+			"Enabled": true
 		}
 	]
 }
